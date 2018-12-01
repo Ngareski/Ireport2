@@ -97,3 +97,10 @@ class RedFlag(Resource):
         }), 404)
 
         }), 201)
+
+class UpdateRedLocation(Resource):
+    """
+    docstring to update a red-flag location
+    """
+    def __init__(self):
+        self.db = RedFlagModels()
