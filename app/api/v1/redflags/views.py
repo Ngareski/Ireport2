@@ -47,7 +47,8 @@ class RedFlag(Resource):
     """
     docstring for a single red-flag
     """
-    pass
+    def __init__(self):
+        self.db = RedFlagModels()
 
 
 
