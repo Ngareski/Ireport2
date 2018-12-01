@@ -41,5 +41,15 @@ class RedFlags(Resource):
 
         return make_response(jsonify({
             "status" : 201,
-            "data" : success_msg
+            "data" : success_msg}), 201)
+
+class RedFlag(Resource):
+    """
+    docstring for a single red-flag
+    """
+    pass
+
+
+
+
         }), 201)
