@@ -72,6 +72,9 @@ class RedFlag(Resource):
             "status" : 200,
             "data" : success_msg
         }), 200)
+        
+    def put(self, redflag_id):
+        incident = self.db.find(redflag_id)
 
 
         }), 201)
