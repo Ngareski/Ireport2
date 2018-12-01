@@ -76,5 +76,24 @@ class RedFlag(Resource):
     def put(self, redflag_id):
         incident = self.db.find(redflag_id)
 
+        if incident:
+            incident['createdBy'] = request.json.get('createdBy', incident[0]['createdBy'])
+            incident['location'] = request.json.get('location', incident[0]['location'])
+            incident['images'] = request.json.get('images', incident[0]['images'])
+            incident['videos'] = request.json.get('videos', incident[0]['videos'])
+            incident['title'] = request.json.get('title', incident[0]['title'])
+            incident['comment'] = request.json.get('comment', incident[0]['comment'])
+            success_msg = {
+                    "message" : "Red- flag has been updated"
+            }
+
+            return make_response(jsonify({
+                "status" : 200,
+                "data" : success_msg
+            }), 200)
+        return make_response(jsonify({
+            "status" : 404,
+            "error" : "Red-flag does not exist"
+        }), 404)
 
         }), 201)
