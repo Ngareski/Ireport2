@@ -57,7 +57,12 @@ class RedFlag(Resource):
             "status" :200,
             "data" : incident
         }), 200)
+        
 
+    def delete(self, redflag_id):
+        incident = self.db.find(redflag_id)
+
+        self.db.delete(incident)
 
 
         }), 201)
