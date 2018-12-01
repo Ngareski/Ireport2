@@ -124,4 +124,10 @@ class UpdateRedLocation(Resource):
         "error" : "Red-flag does not exist"
         }), 404)
 
+class UpdateRedComment(Resource):
+    """
+    docstring to update a red-flag ccomment
+    """
+    def __init__(self):
+            self.db = RedFlagModels()
 
