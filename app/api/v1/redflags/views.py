@@ -8,7 +8,19 @@ class RedFlags(Resource):
     """
     docstring for all redflags
     """
-   def post(self):
+    def __init__(self):
+        self.db = RedFlagModels()
+    
+    def get(self):
+        self.db.get_all()
+
+        return make_response(jsonify({
+            "status" : 200,
+            "data" : self.db.get_all()
+        }), 200)
+        
+        
+    def post(self):
         
         data = {
             'createdOn' : datetime.datetime.utcnow(),
