@@ -131,3 +131,25 @@ class UpdateRedComment(Resource):
     def __init__(self):
             self.db = RedFlagModels()
 
+    def patch(self, redflag_id):
+        incident = self.db.find(redflag_id)
+        incident = self.db.find(redflag_id)
+
+        if incident:
+            incident['comment'] = request.json.get('comment', incident['comment'])
+            success_msg = {
+                            "message" : "Updated red-flag record's comment"
+                    }
+
+            return make_response(jsonify({
+                    "status" : 200,
+                    "data" : success_msg
+                }), 200)
+
+        return make_response(jsonify({
+            "status" : 404,
+            "error" : "Red-flag does not exist"
+        }), 404)
+        
+            self.db = RedFlagModels()
+
