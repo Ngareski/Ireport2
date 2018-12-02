@@ -2,8 +2,8 @@ from flask_restful import Api, Resource
 from flask import Blueprint
 
 from instance.config import app_config
-from redflags.views import RedFlag, RedFlags, UpdateRedComment, UpdateRedLocation
-from users.views import UsersReg
+from app.api.v1.redflags.views import RedFlag, RedFlags, UpdateRedComment, UpdateRedLocation
+from app.api.v1.users.views import UsersReg
 
 version1 = Blueprint('api-v1', __name__, url_prefix= '/api/v1')
 api = Api(version1)
