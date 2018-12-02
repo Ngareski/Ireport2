@@ -13,4 +13,8 @@ branches:
   only:
     -ft-patch-comment-162362702
 after_success:
+<<<<<<< HEAD
 - coveralls
+=======
+- coveralls
+>>>>>>> be49386c52b56f8b3d95e18182a2f43ec8743246
