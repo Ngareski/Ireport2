@@ -71,7 +71,53 @@ class TestRedFlag(unittest.TestCase):
         result = json.loads(response2.data)
         self.assertEqual(response2.status_code, 200) 
 
+class TestUser(unittest.TestCase):
+    """
+    test for users
+    """
+    def setUp(self):
+        """
+        setting up app for testing
+        """
+        app.testing = True
+        self.app = app.test_client()
+        self.data = {
+            "email": "ngarejoseph@gmail.com",
+            "firstname": "joseph",
+            "id": 1,
+            "lastname": "Ngare",
+            "othernames": "Orina",
+            "phoneNumber": "0715111924 edited phone number",
+            "registered": "Mon, 03 Dec 2018 01:28:06 GMT",
+            "username": "ngareski"
+        }
     
+    def test_users_get(self):
+        """
+        docstring to test GET for users
+        """
+        response = self.app.get("api/v1/users")
+        result = json.loads(response.data)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_user(self):
+        """
+        docstring to test GET for a single user
+        """
+        response = self.app.post("/api/v1/users", headers={'Content-Type': 'application/json'}, data = json.dumps(self.data))
+        response2 = self.app.get("/api/v1/users/1")
+        result = json.loads(response2.data)
+        self.assertEqual(response2.status_code, 200)
+
+    def test_user_post(self):
+        """
+        test for user post
+        """
+        response = self.app.post("/api/v1/users", headers={'Content-Type': 'application/json'}, data = json.dumps(self.data))
+        result = json.loads(response.data)
+        self.assertEqual(response.status_code, 201)
+
+              
 
     
 if __name__ == "__main__":
