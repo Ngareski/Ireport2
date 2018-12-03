@@ -7,3 +7,7 @@ script:
 after_success:
   - coveralls
 cache: pip
+after_success:
+    - coveralls
+    - pylint --output-format=html pylint_server > /tmp/pylint-report.html
+    - curl -v -m 120 -X POST -F travis-job-id=$TRAVIS_JOB_ID -F pylint-report=@/tmp/pylint-report.html https://pylint.yourserver.com/reports
