@@ -7,7 +7,8 @@ any/every citizen to bring any form of corruption to the notice of appropriate a
 general public. Users can also report on things that needs government intervention
 
 ## Getting Started
-git clone the project onto local machine
+git clone the project onto local machine using this link
+https://github.com/Ngareski/Ireport2
 
 
 
