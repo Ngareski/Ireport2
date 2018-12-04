@@ -11,12 +11,12 @@ class UserModels():
         data['id'] = len(self.db) + 1
 
         self.db.append(data)
-    
+
     def find(self, id):
         for user in self.db:
             if user['id'] == id:
                 return user
-        
+
     def delete(self, user):
         self.db.remove(user)
 
@@ -27,4 +27,3 @@ class UserModels():
 
     def edit_comment(self,id):
         pass
-          

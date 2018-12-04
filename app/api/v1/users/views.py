@@ -21,6 +21,7 @@ class UsersReg(Resource):
         """
         dosctring to create a users record
         """
+
         data = {
 
             'firstname': request.json.get('firstname', ""),
@@ -41,7 +42,7 @@ class UsersReg(Resource):
         }), 201)
 
 class  UserLogin(Resource):
-    """docstring for user login  ."""
+    """docstring foor user login  ."""
     def __init__(self):
         self.db = UserModels()
 
