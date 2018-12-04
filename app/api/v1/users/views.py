@@ -39,3 +39,8 @@ class UsersReg(Resource):
             "status" : 201,
             "data" : "Succesfuly created account"
         }), 201)
+
+class  UserLogin(Resource):
+    """docstring for user login  ."""
+    def __init__(self):
+        self.db = UserModels()
