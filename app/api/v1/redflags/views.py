@@ -10,7 +10,7 @@ class RedFlags(Resource):
     """
     def __init__(self):
         self.db = RedFlagModels()
-    
+
     def get(self):
         self.db.get_all()
 
@@ -18,10 +18,10 @@ class RedFlags(Resource):
             "status" : 200,
             "data" : self.db.get_all()
         }), 200)
-        
-        
+
+
     def post(self):
-        
+
         data = {
             'createdOn' : datetime.datetime.utcnow(),
             'createdBy' : request.json['createdBy'],
@@ -34,7 +34,7 @@ class RedFlags(Resource):
             'comment' : request.json.get('comment', "")
         }
         self.db.save(data)
-        
+
         success_msg = {
             "message" : "Created red-flag record"
         }
@@ -52,19 +52,19 @@ class RedFlag(Resource):
         self.db = RedFlagModels()
 
     def get(self, redflag_id):
-         
+
         incident = self.db.find(redflag_id)
         return make_response(jsonify({
             "status" :200,
             "data" : incident
         }), 200)
-        
+
 
     def delete(self, redflag_id):
         incident = self.db.find(redflag_id)
 
         self.db.delete(incident)
-        
+
         success_msg = {
                 'message' : " Red-flag record has been deleted"
             }
@@ -73,7 +73,10 @@ class RedFlag(Resource):
             "status" : 200,
             "data" : success_msg
         }), 200)
-        
+        return make_response(jsonify({
+            "error" : "user does not exist"
+        }), 404)
+
     def put(self, redflag_id):
         incident = self.db.find(redflag_id)
 
@@ -97,7 +100,7 @@ class RedFlag(Resource):
             "error" : "Red-flag does not exist"
         }), 404)
 
-        
+
 
 class UpdateRedLocation(Resource):
     """
@@ -152,4 +155,3 @@ class UpdateRedComment(Resource):
             "status" : 404,
             "error" : "Red-flag does not exist"
         }), 404)
-        
