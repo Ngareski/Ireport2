@@ -40,8 +40,13 @@ Then use this command to run the app
 ```
 flask run
 ```
+Endpoints
 
-
-
-
-
+|              | HTTP           | URL path      | Description       
+| ----------- | --------------- | --------- | ----------- |
+| Action    | Verb      |      |       | |
+| Create    | POST       |/api/v1/red-flags     | create a red-flag incident |
+| Read  | GET           | /api/v1/red-flags   | View all existing red-flags |
+| Update  | PATCH           | /api/v1/red-flags/<redflag_id>/comment   |Edit red-flag comment|
+| Update  | PATCH           | /api/v1/red-flags/<redflag_id>/location   | Edit red-flags comment |
+| Delete  | DELETE           | /api/v1/red-flags/<redflag_id>  | Delete an existing red-flag |
