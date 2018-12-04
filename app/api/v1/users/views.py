@@ -39,3 +39,20 @@ class UsersReg(Resource):
             "status" : 201,
             "data" : "Succesfuly created account"
         }), 201)
+
+class  UserLogin(Resource):
+    """docstring for user login  ."""
+    def __init__(self):
+        self.db = UserModels()
+
+    def post(self):
+        data = {
+        'email' : request.json.get('email', ""),
+        'password' : request.json.get('password', "")
+        }
+        self.db.save(data)
+
+        return make_response(jsonify({
+            "status" : 200,
+            "data" : "Logged in"
+        }),200)
